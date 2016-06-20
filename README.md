@@ -13,3 +13,5 @@ The workflow for the system according to a five-step process:
 
 5) After all authors are approved, the admin generates user PDFs, then downloads a consolidated ZIP file for that quarter.  PDFs are then distributed via e-mail and the web.
 
+Screenshots of the app's functionality are available in the Screenshots directory.
+
