@@ -1,0 +1,17 @@
+extends ../layout
+block content	
+	script(src="/javascripts/controllers/admin.js", type="text/javascript")
+	div(class="col-md-12 container-fluid" ng-controller="admin" ng-init="check_quarter()")
+		p
+			| Click a button below to perform the operation listed.
+		button(class="btn btn-warning" ng-click="delete_all_quarter_pdfs()" style='margin-right:5px;')
+			| Permanently Delete All PDFs for {{quarter}} {{year}}
+		button(class="btn btn-warning" ng-click="clear_all_data()")
+			| Permanently Delete All Vendor Data and Advances Data for {{quarter}} {{year}}
+		hr		
+		div(ng-hide="quarter_is_published")
+			button(class="btn btn-success" ng-click="publish_quarter()")
+				| Publish {{quarter}} {{year}}
+		div(ng-show="quarter_is_published")
+			button(class="btn btn-danger" ng-click="unpublish_quarter()")
+				| Unublish {{quarter}} {{year}}

@@ -1,0 +1,60 @@
+div(id='nav', style='position:fixed;width:100%;z-index:1000;background-color:white;')
+	div(class='form-inline period_change')
+		form(name="change_period", method="post")
+			select(name='quarter_select', class="form-control", ng-model="quarter")
+				option --Quarter
+				option Q1
+				option Q2
+				option Q3
+				option Q4
+			| &nbsp;
+			select(name='year_select', class="form-control", ng-model="year")
+				option --Year
+				- var year = new Date().getFullYear() - 5;
+				- for (var x = 0;  x < 15; x++)
+					option= year+x
+			button(type="button", class='btn btn-default', ng-click="setPeriod(quarter, year)")
+				| Change
+	nav
+		div(class='logo', style='float:left')
+			img(src='/images/114.png', width='45', style='margin-bottom:5px;')
+		ul(class="nav nav-tabs")
+			li(role="presentation")
+				a(href='/authors') Authors
+			li(role="presentation")
+				a(href='/files') Files
+			li(role="presentation" class="dropdown")
+				a.dropdown-toggle(data-toggle='dropdown', href='#', role='button', aria-haspopup='true', aria-expanded='false')
+					| Reports
+					span.caret
+				ul(class="dropdown-menu")
+					li(role="presentation")
+						a(ng-href='http://65.61.164.146/quickbooks_report/{{quarter}}/{{year}}') Quickbooks Report
+					li(role="presentation")
+						a(href='/reports/provider?quarter={{quarter}}&year={{year}}') Provider Data to Excel
+					li(role="presentation")
+						a(href='/reports/authors?quarter={{quarter}}&year={{year}}') Author Data to Excel
+					li(role="presentation")
+			li(role="presentation" class="dropdown")
+				a.dropdown-toggle(data-toggle='dropdown', href='#', role='button', aria-haspopup='true', aria-expanded='false')
+					| Tools
+					span.caret
+				ul(class="dropdown-menu")
+					li(role="presentation")
+						a(href='/tools/lineitem') Line Item Editor
+						a(href='/tools/missingIsbn') Missing ISBN
+			li(role="presentation" class="dropdown")
+				a.dropdown-toggle(data-toggle='dropdown', href='#', role='button', aria-haspopup='true', aria-expanded='false')
+					| Settings
+					span.caret
+				ul(class="dropdown-menu")
+					li(role="presentation")
+						a(href='/settings/providers/create') Create a Provider
+					li(role="presentation")
+						a(href='/settings/providers/list') Edit a Provider
+					li(role="presentation")
+						a(href='/admin') Administrator Settings
+					li(role="presentation")
+						a(href='/settings') Global Settings
+			li
+				div(class="msgs default", ng-bind="messages", ng-class="fadeclass")

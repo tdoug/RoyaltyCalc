@@ -1,0 +1,24 @@
+extends ../layout
+block content
+	script(src="/javascripts/controllers/tools.js", type="text/javascript")
+	div(class="create_provider_contianer .col-md-12", ng-controller="tools")
+		div.container-fluid(data-ng-init="load_discrepancies()")
+			h3 Missing ISBN Tool
+			ul.discrepancies(style="list-style-type:none;")
+				li(ng-repeat="discrepancy in discrepancies", class="discrepancy", style="position:relative;padding-top:10px;", ng-hide="discrepancy.resolved")
+					div(style="width:30%;position:relative;")						
+						div.right(style='float:right')
+							strong(style='margin-left:20px;')
+								| Found in:   
+							{{discrepancy.filename}} 
+							strong(style='margin-left:20px;')
+								| Row #:    
+							{{discrepancy.row_number}} 
+							strong(style='margin-left:20px;')
+								| List price: 
+							{{discrepancy.price}}   
+						div.left(style='float:left')
+							input(ng-model="discrepancy.isbn", placeholder="Enter ISBN", ng-blur="correct_discrepancy(discrepancy)")
+						div(style='clear:both')
+			div(ng-hide="discrepancies.length")
+				| No missing ISBNs are in the system for {{quarter}} {{year}}.

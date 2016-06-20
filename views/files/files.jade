@@ -1,0 +1,44 @@
+extends ../layout
+block content
+	script(src="/javascripts/controllers/files.js", type="text/javascript")
+	script(src="/javascripts/controllers/processing.js", type="text/javascript")
+	script(src="/javascripts/controllers/advances.js", type="text/javascript")
+	script(src="/lib/ng-file-upload/ng-file-upload.js", type="text/javascript")
+	div(class="list_providers_contianer col-md-12 container-fluid", ng-controller="files", data-ng-init="load_providers()")
+		ul.list-group.provider_list
+			li(class="list-group-item" ng-repeat="x in providers" ng-class-odd="'list-group-item-success'", ng-class-even="'list-group-item-info'", data-ng-init="" ng-controller="processing")
+				span(class="provider_title")
+					{{x.provider_name}}
+					a(href='javascript:;', ng-click="process_all_provider_files(x)", alt="Process This Provider", style="margin-left:10px;", ng-hide="x.files.length < 1")
+						span(class='glyphicon glyphicon-cog' aria-hidden="true")
+					span(class='glyphicon glyphicon-ok' ng-show='x.entries_exist' style='position:relative;margin-left:5px;margin-right:5px;')
+					{{x.entries_exist}}
+				div(class='provider_files')
+					div(class='provider_file file_item', ng-repeat="file in x.files")
+						div(class='file_operations') 						
+							a(href="javascript:;", ng-click="file_download(x, file)")
+								{{file}}							
+							//a(href='javascript:;', ng-click="process_file(x, file)", alt="Process This File")
+								span(class='glyphicon glyphicon-cog' aria-hidden="true")
+							a(href='javascript:;', ng-click="delete_file(x, file)", alt="Delete This FIle")
+								span(class='glyphicon glyphicon-trash' aria-hidden="true")
+				div(style='clear:both')
+				div(ngf-drop="uploadFiles(x.provider_files, x)", ngf-multiple="true", ng-model="x.provider_files", class="drop-box filedrag")
+					| Drop files here for {{x.provider_name}} - {{quarter}} {{year}}
+			li(class="list-group-item" ng-class-odd="'list-group-item-success'", ng-class-even="'list-group-item-info'" ng-controller="advances")
+				span(class="provider_title")
+					| Advances
+					a(href='javascript:;', ng-click="process_advances(advances)", alt="Process Advances", style="margin-left:10px;", ng-hide="advances.files.length < 1")
+						span(class='glyphicon glyphicon-cog' aria-hidden="true")
+					span(class='glyphicon glyphicon-ok' ng-show='advances.entries_exist' style='position:relative;margin-left:5px;margin-right:5px;')
+					{{advances.entries_exist}}
+				div(class='provider_files')
+					div(class='provider_file file_item', ng-repeat="file in advances.files")
+						div(class='file_operations') 						
+							a(href="javascript:;", ng-click="file_download(advances, file)")
+								{{file}}							
+							a(href='javascript:;', ng-click="delete_file(advances, file)", alt="Delete This FIle")
+								span(class='glyphicon glyphicon-trash' aria-hidden="true")
+				div(style='clear:both')
+				div(ngf-drop="uploadFiles(advances.files, advances)", ngf-multiple="true", ng-model="advances.files", class="drop-box filedrag")
+					| Drop files here for Advances - {{quarter}} {{year}}

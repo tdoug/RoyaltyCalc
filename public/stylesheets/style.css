@@ -1,0 +1,190 @@
+@media only screen and (max-width : 1024px) {
+
+	ul.provider_list li
+	{
+		width:100% !important;
+	}
+}
+
+body {
+  font-size:14px !important;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif !important;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.default{
+    opacity: 1;
+}
+
+.fade{
+    -webkit-transition: opacity 5s; /* For Safari 3.1 to 6.0 */
+    transition: opacity 5s;
+    opacity: 0;
+}
+
+nav div.msgs
+{
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	margin-left:25px;
+	margin-top:8px;
+	padding-left:10px;
+	padding-right:10px;
+	max-height: 30px;
+	line-height: 30px;
+	color:green;
+	border-color:red;
+}
+
+div.period_change, nav
+{
+	margin:0 10px;
+	margin-top:5px;
+}
+
+div.period_change
+{
+	float:right;
+	margin-bottom:10px;
+}
+
+div.period_change button
+{
+	margin-left:15px;
+}
+
+/* AUTHORS */
+
+.list_authors_contianer .alphabet_list
+{
+	position: relative;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.list_authors_contianer .author .top_left
+{
+	float:left;
+}
+
+.list_authors_contianer .author .top_right
+{
+	float:right;
+}
+
+.list_authors_contianer .author button
+{
+	position: relative;
+}
+
+.list_authors_contianer .author .data
+{
+	margin-right:10px;
+}
+
+/* PROVIDERS/FILES */
+
+ul.provider_list
+{
+	position: relative;
+	width:100%;
+	margin-top:10px;
+}
+
+ul.provider_list li
+{
+	display: inline-block;
+	width:100%;
+}
+
+ul.provider_list .provider_files
+{
+	display: inline-block;
+	margin:0 5px;
+	float:right;
+}
+
+ul.provider_list .file_operations
+{
+	display: inline-block;
+	margin:0 10px;
+	vertical-align: middle;
+}
+
+ul.provider_list div.file_item a
+{
+	position: relative;		
+	margin-left:5px;
+	top:2px;
+}
+
+ul.provider_list div.file_item
+{
+	display: inline-block;
+}
+
+ul.provider_list li.provider_list_item a
+{
+	float:right;
+	margin:0 10px;
+}
+
+.list_providers_contianer .provider_title
+{
+	font-weight: bold;
+}
+
+.list_providers_contianer .filedrag
+{
+	text-align: center;
+	margin: 10px 0;
+	color: #555;
+	border: 2px dashed #555;
+	border-radius: 7px;
+	cursor: default;
+	height:100px;
+	line-height: 100px;
+	white-space: nowrap;
+}
+
+.data_loading
+{
+	position: relative;
+	width:100%;
+	margin-top:30px;
+	font-size:24pt;
+	text-align: center;
+	color:gray;
+}
+
+div.button_row button
+{
+	min-width: 25%;
+}
+
+.list_providers_contianer .filedrag:hover
+{
+	color: gray;
+	border-color: white;
+	border-style: solid;
+	box-shadow: inset 0 3px 4px #888;
+}
+
+ul.author_list div.author_providers .provider
+{
+	position: relative;
+	width:200px;
+	float:left;
+}
+
+input[name=author_search]
+{
+	position: relative;
+	width:100%;
+	margin-bottom:5px;
+}

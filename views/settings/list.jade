@@ -1,0 +1,14 @@
+extends ../layout
+block content	
+	script(src="/javascripts/controllers/providers.js", type="text/javascript")
+	div(class="list_providers_contianer col-md-12 container-fluid" ng-controller="providers" data-ng-init="load_providers()")
+		h3 Provider List
+		ul.list-group.provider_list
+			li(class="list-group-item provider_list_item" ng-repeat="x in providers" ng-class-odd="'list-group-item-success'" ng-class-even="'list-group-item-info'")
+				{{x.provider_name}}	
+				a(href="javascript:;" ng-click="delete_provider(x.id)")
+					span(class="glyphicon glyphicon-remove")		
+				a(href='/settings/providers/edit/{{x.id}}')
+					span(class="glyphicon glyphicon-edit")
+				
+

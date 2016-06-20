@@ -1,0 +1,17 @@
+doctype html
+html()
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap-theme.min.css')
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,700', rel='stylesheet' type='text/css')
+		script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js")
+		script(src="/javascripts/controllers/global.js", type="text/javascript")
+	body(ng-app="royalty3" ng-controller="globalroyal", style="position:relative;top:80px;z-index:-1000;")
+		include ./nav.jade
+		block content
+	script(src="/lib/jquery/dist/jquery.min.js")
+	script(src="/lib/bootstrap/dist/js/bootstrap.min.js")
+	
+	

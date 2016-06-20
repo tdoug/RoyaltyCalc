@@ -1,0 +1,49 @@
+extends ../layout
+block content
+	script(src="/javascripts/controllers/authors.js", type="text/javascript")
+	div(class="list_authors_contianer col-md-12 container-fluid", ng-controller="authors", data-ng-init="load_authors()")
+		//div.btn-group.btn-group-sm.alphabet_list(role="group")
+			button.btn(type="button", ng-repeat="letter in alphabet",ng-class-odd="'list-group-item-success'", ng-class-even="'list-group-item-info'", ng-click="search_by_letter(letter)")
+				|{{letter}}
+		div.author_search
+			input.form-control(name='author_search', ng-model='author_search', placeholder="Search by author name...", ng-minlength="3")
+		div.button_row
+			button.btn.list-group-item-success(type="button" ng-click="generate_all_approved()")
+				span(class='glyphicon glyphicon-cog' aria-hidden="true")
+				|  Generate All Approved PDFs
+			button.btn.list-group-item-info(type="button" ng-click="download_reports_zip()")
+				span(class='glyphicon glyphicon-download' aria-hidden="true")
+				|  Download ZIP of All Reports
+			button.btn.list-group-item-success(type="button" ng-click="approve_all()")
+				span(class='glyphicon glyphicon-ok' aria-hidden="true")
+				|  Approve All  PDFs
+			button.btn.list-group-item-info(type="button" ng-click="unapprove_all()")
+				span(class='glyphicon glyphicon-remove' aria-hidden="true")
+				|  Unapprove All  PDFs
+		div(style='clear:both')
+		div(class='data_loading' ng-hide="data_loading")
+			| Loading...
+		div(class='reminder' ng-hide="quarter" style='text-align:center;')
+			| (Please set the quarter and year using the select boxes on the upper right)
+		ul.list-group.author_list
+			li(class="list-group-item author", ng-repeat="author in these_authors | filter: author_search", ng-class-odd="", ng-class-even="'list-group-item-info'")
+				div(class='top_left')
+					{{author.name}} / {{author.real_name}}
+				div(class='top_right')
+					span(class='data')
+						|SID: {{author.sid}}
+						|UID: {{author.uid}}
+					div(class="btn-group btn-group-xs")
+						button.btn.btn-info(ng-click="load_provider_totals(author.uid)")
+							span(class='glyphicon glyphicon-search' aria-hidden="true")
+						button.btn.btn-warning
+							span(class='glyphicon glyphicon-file' aria-hidden="true" ng-click="open_pdf(author.uid)")
+						button.btn(ng-class="author.button_class")
+							span(class='glyphicon' ng-cLass="author.status_class" aria-hidden="true" ng-click="change_author_status(author)")
+				div(style='clear:both')
+				div(class='bottom_area' ng-show="author.show_totals")
+					div.author_providers
+						div.provider(ng-repeat="provider in providers")
+							{{provider.provider_name}}:
+							{{author.royalty_totals[provider.id]}}
+					div(style='clear:both')

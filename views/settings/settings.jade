@@ -1,0 +1,53 @@
+extends ../layout
+block content
+	script(src="/javascripts/controllers/settings.js", type="text/javascript")
+	div(class="settings_contianer .col-md-12" ng-controller="settings" data-ng-init="load_settings()")
+		div.container-fluid
+			h3 Currency Settings
+			p
+				| Current, up-to-the-minute rates are in parenthesis.  Updating all rates and clicking "Save" should occur at least once per quarter.
+			button(ng-click="update_currency_boxes()" class="btn btn-info")
+				| Update All Boxes With Current Rates
+			div(style='clear:both;margin-bottom:15px;')
+			div(class="col-xs-2" ng-repeat="currency in settings.currencies")
+				div.form-group
+					label
+						| {{currency.name}} (
+						{{currency.rate}}
+						| )
+					input(type="text", class="form-control"
+					placeholder="x 1 USD = 1 {{currency.name}}", ng-model="currency.saved_rate")
+			div(style='clear:both')
+			label
+				| Alternate Currency Symbol Mappings
+				| Comma separated, no spaces, e.g. (US=USD,AU=AUD,GB=GBP)
+			br
+			textarea(ng-model="settings.alt_map", cols="100", rows="5")
+				{{settings.alt_map}}
+			h3 Other Settings
+			div.row
+				div(class="col-xs-12")
+					div.form-group						
+					| Royalty Calculation 1
+					br					
+					div(class="col-xs-3") 
+						| Publisher Sales Percentage (PS x X)
+						input(type="text", class="form-control", name="royalty1-commpct",placeholder="0.1-0.99", ng-model="settings.royalty1.commpct")
+			div.row
+				div(class="col-xs-12")
+					div.form-group						
+					| Royalty Calculation 2 (Print Calculation)
+					br					
+					div(class="col-xs-3") 
+						| List Price X Conversion Rate X Quantity X...
+						input(type="text", class="form-control", name="royalty1-commpct",placeholder="0.1-0.99", ng-model="settings.royalty2.commpct")					
+			div.row(style='position:relative;margin-top:10px;')
+				div(class="col-xs-12")
+					div(class="form-group")
+						button(type="button", ng-click="save_settings(settings)" class="btn btn-success")
+							| Save Settings
+			div.row
+				div(class="col-xs-12")
+					div(class="form-group")
+						| Last Updated: 
+						span(ng-bind="settings.updated_date")
