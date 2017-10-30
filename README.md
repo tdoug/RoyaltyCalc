@@ -1,5 +1,5 @@
 # RoyaltyCalc
-A system for tabulating book royalties written in Node, Angular, and utilizing the Sequelize library as a MySQL interface.
+A system for tabulating book royalties written in NodeJS, Angular, the Jade templating library, and utilizing the Sequelize library as a MySQL interface.
 
 The workflow for the system according to a five-step process:
 

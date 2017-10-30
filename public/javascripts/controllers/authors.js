@@ -124,7 +124,7 @@ app.controller('authors', function($scope, $http, $window) {
     $scope.generate_all_approved = function()
     {
         var quarter = $scope.quarter.replace("Q","");
-        var key = "1837cbd573d353f75291a3827b55fe4e";
+        var key = "dummyKey";
         var url = 'http://65.61.164.146/generate_all_pdfs/'+quarter+'/'+$scope.year+'/'+key;
 
         $scope.setMsg("Generating PDFs for approved authors...");
@@ -136,7 +136,7 @@ app.controller('authors', function($scope, $http, $window) {
     $scope.download_reports_zip = function()
     {
         var quarter = $scope.quarter.replace("Q","");
-        var key = "1837cbd573d353f75291a3827b55fe4e";
+        var key = "dummyKey";
         var url = 'http://65.61.164.146/generate_pdf_zip/'+quarter+'/'+$scope.year+'/'+key;
         $window.location = url;
     };

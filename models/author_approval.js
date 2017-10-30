@@ -1,3 +1,4 @@
+// this model stores whether an author's report is approved by the system admin for viewing by the author
 var royalty_db = require('database.js');
 
 var Royalty_Row = royalty_db.define('royaltyCalc_authors_approved_reports', {	

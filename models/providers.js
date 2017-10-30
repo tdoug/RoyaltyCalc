@@ -1,3 +1,4 @@
+// this model stores the list of vendor providers who provide data to the publishing company
 var royalty_db = require('database.js');
 
 var Provider = royalty_db.define('royaltyCalc_providers', {	

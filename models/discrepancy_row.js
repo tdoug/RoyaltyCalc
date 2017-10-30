@@ -1,3 +1,5 @@
+// this model stores discrepancies in the spreadsheets provided by vendors, such as deviations from 
+// expected formatting, empty columns, etc.
 var royalty_db = require('database.js');
 
 var Discrepancy_Row = royalty_db.define('royaltyCalc_discrepancies', {	

@@ -48,7 +48,7 @@ function($scope, $http){
 		if(confirm("Are you ABSOLUTELY SURE you want to delete all PDFs for " + $scope.quarter + " " + $scope.year + "?  This CANNOT be undone! Click 'cancel' to exit."))
 		{
 			var quarter = $scope.quarter.replace("Q","");
-	        var key = "7639b12eb41a626c671c35c974013026";
+	        var key = "dummyKey";
 	        var url = 'http://www.vendor.com/delete_all_quarter_royalty_pdfs/'+quarter+'/'+$scope.year+'/'+key;
 
 	        $scope.setMsg("Deleting PDFs...");
@@ -64,7 +64,7 @@ function($scope, $http){
 
 	$scope.clear_all_data = function()
 	{
-		var key = "7639b12eb41a626c671c35c974013026";
+		var key = "dummyKey";
 		if(confirm("Are you ABSOLUTELY SURE you want to delete all data for " + $scope.quarter + " " + $scope.year + "?  This CANNOT be undone! Click 'cancel' to exit."))
 		{
 			$http.post("/api/clear_all_data", {quarter:$scope.quarter, year:$scope.year, key:key}).success(function(res)
