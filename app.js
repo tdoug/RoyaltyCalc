@@ -9,11 +9,6 @@ var bodyParser = require('body-parser');
 var compression = require('compression');
 var auth = require('http-auth');
 
-var basic = auth.basic({
-  realm: "Basic User",
-  file: __dirname + "/users.htpasswd"
-});
-
 //var index = require('./routes/index');
 var files = require('./routes/files');
 var tools = require('./routes/tools');
@@ -26,7 +21,6 @@ var processing = require('./routes/processing');
 var reports = require('./routes/reports');
 
 var app = express();
-app.use(auth.connect(basic));
 
 ///uploads
 app.use(express.static(__dirname + '/..'));

@@ -12,6 +12,7 @@
     "basic-auth": "^1.0.3",
     "basic-auth-connect": "^1.0.0",
     "basic-auth-old": "0.0.1",
+    "basic-csv": "0.0.2",
     "body-parser": "~1.13.2",
     "bootstrap": "^3.3.5",
     "compression": "^1.6.0",

@@ -1,5 +1,6 @@
 // this model stores the amount of a given author's advance paid by the company for a given fiscal quarter
-var royalty_db = require('database.js');
+var royalty_db = require('./database');
+var sequelize = require('sequelize');
 
 var Advances_Row = royalty_db.define('royaltyCalc_advances_authors', {	
 	author_uid: sequelize.INTEGER,

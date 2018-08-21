@@ -1,6 +1,7 @@
 // this stores the total tabulated royalty to be paid to a given author for a given quarter/year.  Data is taken from all
 // vendor provided spreadsheets.
-var royalty_db = require('database.js');
+var royalty_db = require('./database');
+var sequelize = require('sequelize');
 
 var Royalty_Row = royalty_db.define('royaltyCalc_royalties', {	
 	author_uid: sequelize.INTEGER,
