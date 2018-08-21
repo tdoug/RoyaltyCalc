@@ -1,8 +1,6 @@
 var sequelize = require('sequelize');
 
-var external_db_url = "mysql://localhost";
-
-var royaltyCalc_db = new sequelize(external_db_url,
+var royaltyCalc_db = new sequelize(process.env.DB_URL,
 	{logging: false, pool: {
         	minConnections: 50,
         	maxIdleTime: 5000
