@@ -21,7 +21,7 @@ The workflow for the system according to a five-step process:
 Screenshots of the app's functionality are available in the Screenshots directory.
 
 ---
-#Setup
+# Setup
 
 1) Copy the .env.example to .env and edit the DB_URL to point to an empty MySQL DB.
 2) `npm install`
