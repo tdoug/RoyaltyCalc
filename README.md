@@ -25,3 +25,7 @@ The workflow for the system according to a five-step process:
 2) `npm install`
 3) `npm start`
 
+# TODO
+
+1) Make it so the app doesn't die horribly if you don't login to the admin route and configure options
+
